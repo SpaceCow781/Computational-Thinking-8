@@ -1,0 +1,8 @@
+Color = input("Favorite Color: ")
+name = input("Enter Name: ")
+print(f"Hello {name}")
+print(f"Your favorite color is {Color}")
+Color2 = input("Least Favorite Color: ")
+print(f"{Color} becomes another Color when it is mixed with {Color2}")
+ColorChange = input("That Color Is:")
+print(f"{Color} becomes {ColorChange} when mixed with {Color2}")

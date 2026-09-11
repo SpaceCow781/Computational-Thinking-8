@@ -1,0 +1,6 @@
+a = input("Enter Adjective: ")
+v = input("Enter Verb: ")
+n = input("Enter Noun: ")
+l = input("Enter a Non-Specific Location: ")
+print()
+print(f"The {a} {n} {v} to the {l}")
