@@ -1,4 +1,4 @@
-place = input("You wake up. Where will you go today?")
+place = input("You wake up. What place are you going to?")
 print(f"Wow Brow. After a longy day at the {place}, you've run out of gas!")
 print("Will you go to the Gas Station, or the Gas Emporium+?")
 place2 = input()
@@ -116,7 +116,7 @@ elif place2 == "gas emporium":
                 print("You misbehavers! I've ought to send each and every one of you to jail!")
                 print("This is exactly why I'm gonna teach ya how to be a police officer. If you see anything out of line, send 'em to jail! Right away!")
                 print("As you fall asleep in your seat, you see all the ways you will help/hurt others as a police officer.")
-                print(f"Maybe the real jail was the {place} all along.")
+                print(f"You wonder if this would have even happened if you didn't go to the {place} all along.")
                 print("You won!")
             else:
                 print("You decide to wander the halls. Uh oh! It's the head of school! And they are very mad mad mad!")
