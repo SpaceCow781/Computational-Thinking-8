@@ -82,8 +82,11 @@ if answer == "1":
     d += 2
     t_t += 1
     s += 1
+    q += 1
 else:
     j += 1
+    e += 1
+    f += 1
     p += 1
     t_g += 1
 print("Don't break out in hives it's question five! What board game do you like the most? Secret Thursday, Snake Finder 63, or Lemon Theory?")
@@ -91,11 +94,15 @@ answer = input("Answer: ")
 if answer == "1":
     t_t += 1
     j += 1
+    f += 1
+    b += 2
 elif answer == "2":
     t_g += 1
     d += 1
+    q += 1
 else:
     p += 1
+    e += 1
     s += 2
 print("Building Bricks it's question six! Who do you fear: Old Man Chilly, or the Ghost of the Ocean?")
 answer = input("Answer: ")
