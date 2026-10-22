@@ -23,7 +23,7 @@ print("You've made it to the Dungeon of Doors! Spooky! Pick your choices wisely,
 time.sleep(.25)
 print("Behind each door is either a heal, treasure, or a monster. Each door has a higher chance of getting a monster than the last, but rewards good luck with more treasure.")
 
-# This loop loops lines 23 to 166
+# This is a for loop - This loop loops lines 27 to 249
 for i in range(10):
     time.sleep(.25)
 # This part is for calculating the odds of safety, healing if you are safe, and how much treasure you get based on what door you choose
@@ -37,20 +37,20 @@ for i in range(10):
         healing_chance = 2
         treasure_value = 1
     elif door == "2":
-        safety_chance = 3
-        healing_chance = 3
+        safety_chance = 2
+        healing_chance = 2
         treasure_value = 2
         treasure_value += two_t_bonus
         safety_chance -= two_s_bonus
     elif door == "3":
-        safety_chance = 4
-        healing_chance = 4
+        safety_chance = 3
+        healing_chance = 3
         treasure_value = 3
         treasure_value += three_t_bonus
         safety_chance -= three_s_bonus
     elif door == "4":
-        safety_chance = 5
-        healing_chance = 5
+        safety_chance = 4
+        healing_chance = 4
         treasure_value = 4
         treasure_value += four_t_bonus
         safety_chance -= four_s_bonus
@@ -81,7 +81,7 @@ for i in range(10):
         print(f"You lost {monster_damage} Health!")
         health -= monster_damage
 # If you run out of health, you lose the game and the program tells you how much treasure you lost with
-        if health == 0:
+        if health == 0 or health < 0:
             print(f"You're out of luck, and health! Bye bye, buddy!")
             if treasure > 20:
                 time.sleep(.5)
@@ -209,6 +209,44 @@ for i in range(10):
             two_s_bonus -= 1
             three_s_bonus -= 1
             four_s_bonus -= 1
+    elif event == 4:
+        print("A brick wall covered in bugs stares at you with giant, creepy eyes.")
+        print("Save us! Help us! Feed us!")
+        print("1 - Lose 1 Health, +1 Healing Bonus")
+        print("2 - +5 Treasure")
+        choice == input("Choice: ")
+        if choice == "1":
+            if health == 1:
+                healing_bonus += 1
+            else:
+                health -= 1
+                healing_bonus += 1
+        else:
+            treasure += 5
+    elif event == 5:
+        print("A giant hand comes out of the ground and grabs your bag of treasure!")
+        print("1 - Lose all treasure, +1 Safety on Door 4")
+        print("2 - Lose 2 Health, double your Treasure")
+        choice == input("Choice: ")
+        if choice == 1:
+            treasure = 0
+            four_s_bonus += 1
+        else:
+            if health == 2:
+                treasure *= 2
+            else:
+                health -= 2
+                treasure *= 2
+    elif event == 6:
+        print("You hear a crying sound coming from the other room. After opening the door you see a baby with a big brain!")
+        print("Hello, fellow intellectual. Might you wish you compare calculations?")
+        print(f"1 - Set your health to 4 (Your current health is {health}!)")
+        print(f"2 - Set your monster damage to 2 (Your current monster damage is {monster_damage}!)")
+        choice == input("Choice: ")
+        if choice == 1:
+            health = 4
+        else:
+            monster_damage = 2
 
 # This is what happens when you make it through all rounds
 print(f"You made it to the end and escaped! You won with {health} health and {treasure} treasure!")
