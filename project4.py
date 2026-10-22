@@ -74,7 +74,7 @@ for i in range(10):
         else:
             treasure += treasure_value
             treasure *= treasure_multiplier
-            print(f"You got {treasure_value} treasure! You now have {treasure} treasure!")
+            print(f"You got some treasure! You now have {treasure} treasure!")
 # This part happens if you are not safe, where a monster will make you lose 1 health    
     elif safety > 1:
         print(f"Uh oh! An evil monster cut you into {safety} slices!")
