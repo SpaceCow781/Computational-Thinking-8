@@ -23,7 +23,7 @@ print("You've made it to the Dungeon of Doors! Spooky! Pick your choices wisely,
 time.sleep(.25)
 print("Behind each door is either a heal, treasure, or a monster. Each door has a higher chance of getting a monster than the last, but rewards good luck with more treasure.")
 
-# This is a for loop - This loop loops lines 27 to 249
+# This is a for loop - This loop loops lines 27 to 288
 for i in range(10):
     time.sleep(.25)
 # This part is for calculating the odds of safety, healing if you are safe, and how much treasure you get based on what door you choose
@@ -72,8 +72,8 @@ for i in range(10):
             print(f"You healed {healing_bonus} health! Healthy!")
             health += healing_bonus
         else:
+            treasure_value *= treasure_multiplier
             treasure += treasure_value
-            treasure *= treasure_multiplier
             print(f"You got some treasure! You now have {treasure} treasure!")
 # This part happens if you are not safe, where a monster will make you lose 1 health    
     elif safety > 1:
@@ -166,7 +166,7 @@ for i in range(10):
         elif reward_slot_2 == 8:
             treasure_multiplier += 1
 # This part is for special events that happen at the end of each round
-    event = random.randint(1,3)
+    event = random.randint(1,9)
     time.sleep(.25)
     if event == 1:
         print("A magic fairy flies through a hole in the wall.")
@@ -174,9 +174,12 @@ for i in range(10):
         if health > 3:
             print("Seems you're doing well. Let's give thee a challenge, see!")
             monster_damage += 1
+            print("Damage taken from monsters is increased by 1!")
         else:
             print("Seems you may need a savior! May health be of you, my friend!")
             health += healing_bonus
+            print("+1 Healing!")
+
     elif event == 2:
             print("A face peeks out of a strange hallway")
             print("Who might you be, young one? Spare three coins to a lonely old man?")
@@ -190,7 +193,7 @@ for i in range(10):
                     print("The old man boosts your safety in doors 2 and 3!")
                     three_s_bonus += 1
                     two_s_bonus += 1
-                if choice == "2":
+                else:
                     print("Pitiful little child! May you be cursed for 1000 years!")
                     print("The old man lowers your safety on door 2 by 1!")
                     two_s_bonus -= 1
@@ -247,6 +250,42 @@ for i in range(10):
             health = 4
         else:
             monster_damage = 2
+    elif event == 7:
+        print("As you are walking you step onto a trap! Fog fills the room, and the sharp sound of spooky spikes rings from the floor!")
+        print("1 - 50% Chance of taking 3 Damage!")
+        print("2 - 25% Chance of taking 4 Damage!")
+        choice == input("Choice: ")
+        if choice == 1:
+            fog = 2
+        else:
+            fog = 4
+            if health < 3:
+                event_damage = random.randint(1,fog)
+                if event_damage == 1:
+                    health = 1
+                    print("You lost health down to 1 health!")
+                else:
+                    print("You walk out of the cloud unscratched!")
+            else:
+                event_damage = random.randint(1,fog)
+                if event_damage == 1:
+                    health -= 3
+                    print(f"You lost {fog} Health! You are now at {health} health!")
+                else:
+                    print("You walk out of the cloud unscratched!")
+    elif event == 8:
+        print("You walk into a strange room filled with statues hanging from the walls. Some rocks hit your head, and you notice that a giant stone face is lowering from the ceiling!")
+        if two_s_bonus > 0:
+            two_s_bonus = -1
+            print("You escape just in time, but not without lowering the chances of safety on door two by 1!")
+        elif three_s_bonus > 1:
+            three_s_bonus = -1
+            print("You escape just in time, but not without lowering the chances of safety on door three by 1!")
+        elif four_s_bonus > 2:
+            four_s_bonus = -1
+            print("You escape just in time, but not without lowering the chances of safety on door four by 1!")
+        else:
+            print("You escaped just in time!")
 
 # This is what happens when you make it through all rounds
 print(f"You made it to the end and escaped! You won with {health} health and {treasure} treasure!")
