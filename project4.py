@@ -23,7 +23,7 @@ print("You've made it to the Dungeon of Doors! Spooky! Pick your choices wisely,
 time.sleep(.25)
 print("Behind each door is either a heal, treasure, or a monster. Each door has a higher chance of getting a monster than the last, but rewards good luck with more treasure.")
 
-# This is a for loop - This loop loops lines 27 to 288
+# This is a for loop - This loop loops lines 27 to 297
 for i in range(10):
     time.sleep(.25)
 # This part is for calculating the odds of safety, healing if you are safe, and how much treasure you get based on what door you choose
@@ -286,6 +286,14 @@ for i in range(10):
             print("You escape just in time, but not without lowering the chances of safety on door four by 1!")
         else:
             print("You escaped just in time!")
-
+# This is an extra check at the end of an event to see if you have run out of health
+if health == 0 or health < 0:
+            print(f"You're out of luck, and health! Bye bye, buddy!")
+            if treasure > 20:
+                time.sleep(.5)
+                print(f"You lost with {treasure} treasure, that could have bought a good spatula!")
+            else:
+                print(f"You lost with {treasure} treasure! That couldn't have bought much, but it's still a shame!")
+            quit()
 # This is what happens when you make it through all rounds
 print(f"You made it to the end and escaped! You won with {health} health and {treasure} treasure!")
