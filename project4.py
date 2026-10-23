@@ -259,7 +259,7 @@ for i in range(10):
             fog = 2
         else:
             fog = 4
-            if health < 3:
+            if health < fog or health == fog:
                 event_damage = random.randint(1,fog)
                 if event_damage == 1:
                     health = 1
