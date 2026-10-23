@@ -166,7 +166,7 @@ for i in range(10):
         elif reward_slot_2 == 8:
             treasure_multiplier += 1
 # This part is for special events that happen at the end of each round
-    event = random.randint(1,9)
+    event = random.randint(1,8)
     time.sleep(.25)
     if event == 1:
         print("A magic fairy flies through a hole in the wall.")
