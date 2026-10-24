@@ -23,7 +23,7 @@ print("You've made it to the Dungeon of Doors! Spooky! Pick your choices wisely,
 time.sleep(.25)
 print("Behind each door is either a heal, treasure, or a monster. Each door has a higher chance of getting a monster than the last, but rewards good luck with more treasure.")
 
-# This is a for loop - This loop loops lines 27 to 297
+# This is a for loop - This loop loops lines 27 to 289
 for i in range(10):
     time.sleep(.25)
 # This part is for calculating the odds of safety, healing if you are safe, and how much treasure you get based on what door you choose
@@ -183,12 +183,13 @@ for i in range(10):
     elif event == 2:
             print("A face peeks out of a strange hallway")
             print("Who might you be, young one? Spare three coins to a lonely old man?")
-            if treasure > 2:
+            if treasure > 3 or treasure == 3:
                 print("Give 3 treasure to this old man?")
                 print("1 - Give 3 Treasure")
                 print("2 - Leave")
                 choice == input("Choice: ")
                 if choice == "1":
+                    treasure -= 3
                     print("Why thank you, you're too kind! Here's something for your troubles.")
                     print("The old man boosts your safety in doors 2 and 3!")
                     three_s_bonus += 1
